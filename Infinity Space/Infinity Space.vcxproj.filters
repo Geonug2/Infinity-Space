@@ -4,10 +4,32 @@
     <Filter Include="Window">
       <UniqueIdentifier>{831e82db-1f6b-4c93-bd81-bb3c12a3cffe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="VertexShader">
+      <UniqueIdentifier>{5dcef495-0c17-41d0-9175-5f6b98764e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hlsl">
+      <UniqueIdentifier>{a9f7d710-b169-4dc7-9679-9a208ddb5e31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderSystem">
+      <UniqueIdentifier>{de9dbe97-8a1f-4e60-8c81-9dc841ae9ce0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InfinitySpace.cpp">
       <Filter>Window</Filter>
     </ClCompile>
+    <ClCompile Include="VertexShader.cpp">
+      <Filter>VertexShader</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="VertexShader.h">
+      <Filter>VertexShader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="VertexShader.hlsl">
+      <Filter>Hlsl</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

@@ -5,6 +5,8 @@
 #include <stdexcept>
 #include <gdiplus.h>
 
+#include "VertexShader.h"
+
 using Microsoft::WRL::ComPtr;
 using namespace Gdiplus;
 
@@ -19,6 +21,8 @@ enum class ImageState {
 };
 
 ImageState currentImage = ImageState::Main; // Algne pilt
+
+ID3D12Device* device = nullptr;
 
 // GDI+ algatamine
 void InitGDIPlus() {
@@ -69,6 +73,10 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 
 void InitD3D(HWND hwnd) {
     // D3D12 algatamine (see osa jääb samaks)
+
+    // Looge VertexShader
+    VertexShader vertexShader(device);
+    // Nüüd saate kasutada vertexShader objekti, et saada shader blob ja seadistada see pipeline'i
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
