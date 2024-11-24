@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <gdiplus.h>
 
+#include "PixelShader.h"
 #include "VertexShader.h"
 
 using Microsoft::WRL::ComPtr;
@@ -76,6 +77,8 @@ void InitD3D(HWND hwnd) {
 
     // Looge VertexShader
     VertexShader vertexShader(device);
+
+    PixelShader pixelShader(device);
     // Nüüd saate kasutada vertexShader objekti, et saada shader blob ja seadistada see pipeline'i
 }
 

@@ -10,8 +10,8 @@
     <Filter Include="Hlsl">
       <UniqueIdentifier>{a9f7d710-b169-4dc7-9679-9a208ddb5e31}</UniqueIdentifier>
     </Filter>
-    <Filter Include="RenderSystem">
-      <UniqueIdentifier>{de9dbe97-8a1f-4e60-8c81-9dc841ae9ce0}</UniqueIdentifier>
+    <Filter Include="PixelShader">
+      <UniqueIdentifier>{fcc95ad2-8250-4cf6-8a41-4c34b9a304a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -21,14 +21,23 @@
     <ClCompile Include="VertexShader.cpp">
       <Filter>VertexShader</Filter>
     </ClCompile>
+    <ClCompile Include="PixelShader.cpp">
+      <Filter>PixelShader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VertexShader.h">
       <Filter>VertexShader</Filter>
     </ClInclude>
+    <ClInclude Include="PixelShader.h">
+      <Filter>PixelShader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="VertexShader.hlsl">
+      <Filter>Hlsl</Filter>
+    </FxCompile>
+    <FxCompile Include="PixelShader.hlsl">
       <Filter>Hlsl</Filter>
     </FxCompile>
   </ItemGroup>
