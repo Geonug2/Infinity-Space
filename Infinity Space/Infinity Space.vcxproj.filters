@@ -13,6 +13,12 @@
     <Filter Include="PixelShader">
       <UniqueIdentifier>{fcc95ad2-8250-4cf6-8a41-4c34b9a304a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PSO">
+      <UniqueIdentifier>{d2cad18e-bc93-4c16-9c78-498ec5734216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LogError">
+      <UniqueIdentifier>{fca263ae-3092-4d42-8d08-0ef35f1e5e0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InfinitySpace.cpp">
@@ -24,6 +30,12 @@
     <ClCompile Include="PixelShader.cpp">
       <Filter>PixelShader</Filter>
     </ClCompile>
+    <ClCompile Include="PSO.cpp">
+      <Filter>PSO</Filter>
+    </ClCompile>
+    <ClCompile Include="LogError.cpp">
+      <Filter>LogError</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VertexShader.h">
@@ -31,6 +43,12 @@
     </ClInclude>
     <ClInclude Include="PixelShader.h">
       <Filter>PixelShader</Filter>
+    </ClInclude>
+    <ClInclude Include="PSO.h">
+      <Filter>PSO</Filter>
+    </ClInclude>
+    <ClInclude Include="LogError.h">
+      <Filter>LogError</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

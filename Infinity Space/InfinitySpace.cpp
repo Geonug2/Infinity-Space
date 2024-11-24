@@ -4,9 +4,11 @@
 #include <wrl.h>
 #include <stdexcept>
 #include <gdiplus.h>
+#include <memory>
 
 #include "PixelShader.h"
 #include "VertexShader.h"
+#include "PSO.h"
 
 using Microsoft::WRL::ComPtr;
 using namespace Gdiplus;
@@ -73,13 +75,25 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 }
 
 void InitD3D(HWND hwnd) {
-    // D3D12 algatamine (see osa jääb samaks)
+    // D3D12 seadistamine (see osa jääb samaks)
 
-    // Looge VertexShader
-    VertexShader vertexShader(device);
+    // Looge D3D12 device
+    HRESULT hr = D3D12CreateDevice(
+        nullptr, // Kasutame null, et luua automaatne adapter
+        D3D_FEATURE_LEVEL_11_0,
+        IID_PPV_ARGS(&device)
+    );
 
-    PixelShader pixelShader(device);
-    // Nüüd saate kasutada vertexShader objekti, et saada shader blob ja seadistada see pipeline'i
+    if (FAILED(hr)) {
+        throw std::runtime_error("Failed to create D3D12 device");
+    }
+
+    // Looge VertexShader ja PixelShader
+    auto vertexShader = std::make_unique<VertexShader>(device);
+    auto pixelShader = std::make_unique<PixelShader>(device);
+
+    // Looge Pipeline State Object
+    PipelineStateObject pso(device, vertexShader.get(), pixelShader.get());
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
