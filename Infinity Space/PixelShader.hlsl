@@ -1,5 +1,5 @@
-Texture2D texture : register(t0);
-SamplerState samplerState : register(s0);
+Texture2D myTexture : register(t0);
+SamplerState mySampler : register(s0);
 
 struct PS_INPUT
 {
@@ -9,5 +9,5 @@ struct PS_INPUT
 
 float4 main(PS_INPUT input) : SV_TARGET
 {
-    return texture.Sample(samplerState, input.texCoord);
+    return myTexture.Sample(mySampler, input.texCoord);
 }
