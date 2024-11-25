@@ -28,9 +28,6 @@
     <Filter Include="GraphicsRendering\VertexBuffer">
       <UniqueIdentifier>{f33251bc-baa0-4daa-92cf-4bcf881c7936}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GraphicsRendering\IndexBuffer">
-      <UniqueIdentifier>{e62dc9ff-5e2d-4f95-b233-1dedbcf79cd8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GraphicsRendering\VertexShader">
       <UniqueIdentifier>{5dcef495-0c17-41d0-9175-5f6b98764e0a}</UniqueIdentifier>
     </Filter>
@@ -60,15 +57,6 @@
     <ClCompile Include="Buffer.cpp">
       <Filter>GraphicsRendering\Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicsRendering.cpp">
-      <Filter>GraphicsRendering</Filter>
-    </ClCompile>
-    <ClCompile Include="VertexBuffer.cpp">
-      <Filter>GraphicsRendering\VertexBuffer</Filter>
-    </ClCompile>
-    <ClCompile Include="IndexBuffer.cpp">
-      <Filter>GraphicsRendering\IndexBuffer</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VertexShader.h">
@@ -88,15 +76,6 @@
     </ClInclude>
     <ClInclude Include="Buffer.h">
       <Filter>GraphicsRendering\Buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsRendering.h">
-      <Filter>GraphicsRendering</Filter>
-    </ClInclude>
-    <ClInclude Include="VertexBuffer.h">
-      <Filter>GraphicsRendering\VertexBuffer</Filter>
-    </ClInclude>
-    <ClInclude Include="IndexBuffer.h">
-      <Filter>GraphicsRendering\IndexBuffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -74,6 +74,9 @@
     <IncludePath>C:\Users\georg\vcpkg\installed\x64-windows\include;C:\Users\georg\source\repos\Infinity Space\InfinityTexture;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\georg\source\repos\Infinity Space\x64\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\georg\vcpkg\installed\x64-windows\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -112,7 +115,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d12.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;Gdiplus.lib;D3DCompiler.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -135,24 +138,18 @@
   <ItemGroup>
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Button.cpp" />
-    <ClCompile Include="GraphicsRendering.cpp" />
-    <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="InfinitySpace.cpp" />
     <ClCompile Include="LogError.cpp" />
     <ClCompile Include="PixelShader.cpp" />
     <ClCompile Include="PSO.cpp" />
-    <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="VertexShader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Button.h" />
-    <ClInclude Include="GraphicsRendering.h" />
-    <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="LogError.h" />
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="PSO.h" />
-    <ClInclude Include="VertexBuffer.h" />
     <ClInclude Include="VertexShader.h" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,6 @@
 #include <stdexcept>
 #include <gdiplus.h>
 #include <memory>
-
 #include "PixelShader.h"
 #include "VertexShader.h"
 #include "PSO.h"
@@ -116,21 +115,6 @@ void InitD3D(HWND hwnd) {
 
     // Looge Pipeline State Object
     PipelineStateObject pso(device, vertexShader.get(), pixelShader.get());
-
-    // Näiteks vertexide andmed
-    struct Vertex {
-        float position[3];
-        float color[3];
-    };
-
-    Vertex vertices[] = {
-        { { 0.0f, 0.5f, 0.0f }, { 1.0f, 0.0f, 0.0f } },
-        { { 0.5f, -0.5f, 0.0f }, { 0.0f, 1.0f, 0.0f } },
-        { { -0.5f, -0.5f, 0.0f }, { 0.0f, 0.0f, 1.0f } },
-    };
-
-    // Looge vertex buffer
-    Buffer vertexBuffer(device, vertices, sizeof(vertices));
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
@@ -165,7 +149,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     // Seadke timer esmakordselt 5 sekundiks
     SetTimer(hwnd, TIMER_ID, SWITCH_TIME, NULL);
 
-    // Pe amine tsükkel
+    // Peamine tsükkel
     MSG msg = {};
     while (GetMessage(&msg, nullptr, 0, 0)) {
         TranslateMessage(&msg);
