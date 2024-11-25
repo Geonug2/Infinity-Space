@@ -4,14 +4,8 @@
     <Filter Include="Window">
       <UniqueIdentifier>{831e82db-1f6b-4c93-bd81-bb3c12a3cffe}</UniqueIdentifier>
     </Filter>
-    <Filter Include="VertexShader">
-      <UniqueIdentifier>{5dcef495-0c17-41d0-9175-5f6b98764e0a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Hlsl">
       <UniqueIdentifier>{a9f7d710-b169-4dc7-9679-9a208ddb5e31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="PixelShader">
-      <UniqueIdentifier>{fcc95ad2-8250-4cf6-8a41-4c34b9a304a0}</UniqueIdentifier>
     </Filter>
     <Filter Include="PSO">
       <UniqueIdentifier>{d2cad18e-bc93-4c16-9c78-498ec5734216}</UniqueIdentifier>
@@ -25,8 +19,23 @@
     <Filter Include="Frame\Button">
       <UniqueIdentifier>{2a365fb2-3366-4461-90c1-9233a87c0be9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Buffer">
+    <Filter Include="GraphicsRendering">
+      <UniqueIdentifier>{83861cb6-e7b9-4db8-a42a-389ddb1fe4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsRendering\Buffer">
       <UniqueIdentifier>{fa641c2f-e60f-4eaa-946d-c405d582a079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsRendering\VertexBuffer">
+      <UniqueIdentifier>{f33251bc-baa0-4daa-92cf-4bcf881c7936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsRendering\IndexBuffer">
+      <UniqueIdentifier>{e62dc9ff-5e2d-4f95-b233-1dedbcf79cd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsRendering\VertexShader">
+      <UniqueIdentifier>{5dcef495-0c17-41d0-9175-5f6b98764e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsRendering\PixelShader">
+      <UniqueIdentifier>{fcc95ad2-8250-4cf6-8a41-4c34b9a304a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,10 +43,10 @@
       <Filter>Window</Filter>
     </ClCompile>
     <ClCompile Include="VertexShader.cpp">
-      <Filter>VertexShader</Filter>
+      <Filter>GraphicsRendering\VertexShader</Filter>
     </ClCompile>
     <ClCompile Include="PixelShader.cpp">
-      <Filter>PixelShader</Filter>
+      <Filter>GraphicsRendering\PixelShader</Filter>
     </ClCompile>
     <ClCompile Include="PSO.cpp">
       <Filter>PSO</Filter>
@@ -49,15 +58,24 @@
       <Filter>Frame\Button</Filter>
     </ClCompile>
     <ClCompile Include="Buffer.cpp">
-      <Filter>Buffer</Filter>
+      <Filter>GraphicsRendering\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsRendering.cpp">
+      <Filter>GraphicsRendering</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBuffer.cpp">
+      <Filter>GraphicsRendering\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexBuffer.cpp">
+      <Filter>GraphicsRendering\IndexBuffer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VertexShader.h">
-      <Filter>VertexShader</Filter>
+      <Filter>GraphicsRendering\VertexShader</Filter>
     </ClInclude>
     <ClInclude Include="PixelShader.h">
-      <Filter>PixelShader</Filter>
+      <Filter>GraphicsRendering\PixelShader</Filter>
     </ClInclude>
     <ClInclude Include="PSO.h">
       <Filter>PSO</Filter>
@@ -69,7 +87,16 @@
       <Filter>Frame\Button</Filter>
     </ClInclude>
     <ClInclude Include="Buffer.h">
-      <Filter>Buffer</Filter>
+      <Filter>GraphicsRendering\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsRendering.h">
+      <Filter>GraphicsRendering</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBuffer.h">
+      <Filter>GraphicsRendering\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexBuffer.h">
+      <Filter>GraphicsRendering\IndexBuffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
