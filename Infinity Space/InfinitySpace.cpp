@@ -10,6 +10,7 @@
 #include "VertexShader.h"
 #include "PSO.h"
 #include "Button.h"
+#include "Buffer.h"
 
 using Microsoft::WRL::ComPtr;
 using namespace Gdiplus;
@@ -115,6 +116,21 @@ void InitD3D(HWND hwnd) {
 
     // Looge Pipeline State Object
     PipelineStateObject pso(device, vertexShader.get(), pixelShader.get());
+
+    // Näiteks vertexide andmed
+    struct Vertex {
+        float position[3];
+        float color[3];
+    };
+
+    Vertex vertices[] = {
+        { { 0.0f, 0.5f, 0.0f }, { 1.0f, 0.0f, 0.0f } },
+        { { 0.5f, -0.5f, 0.0f }, { 0.0f, 1.0f, 0.0f } },
+        { { -0.5f, -0.5f, 0.0f }, { 0.0f, 0.0f, 1.0f } },
+    };
+
+    // Looge vertex buffer
+    Buffer vertexBuffer(device, vertices, sizeof(vertices));
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {

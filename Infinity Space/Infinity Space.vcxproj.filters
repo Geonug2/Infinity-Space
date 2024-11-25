@@ -25,6 +25,9 @@
     <Filter Include="Frame\Button">
       <UniqueIdentifier>{2a365fb2-3366-4461-90c1-9233a87c0be9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Buffer">
+      <UniqueIdentifier>{fa641c2f-e60f-4eaa-946d-c405d582a079}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InfinitySpace.cpp">
@@ -45,6 +48,9 @@
     <ClCompile Include="Button.cpp">
       <Filter>Frame\Button</Filter>
     </ClCompile>
+    <ClCompile Include="Buffer.cpp">
+      <Filter>Buffer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VertexShader.h">
@@ -61,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Frame\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Buffer.h">
+      <Filter>Buffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

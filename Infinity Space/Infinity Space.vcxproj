@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="InfinitySpace.cpp" />
     <ClCompile Include="LogError.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="VertexShader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Buffer.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="LogError.h" />
     <ClInclude Include="PixelShader.h" />
