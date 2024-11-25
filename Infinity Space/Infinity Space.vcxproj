@@ -71,7 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\georg\vcpkg\installed\x64-windows\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\georg\vcpkg\installed\x64-windows\include;C:\Users\georg\source\repos\Infinity Space\InfinityTexture;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\georg\source\repos\Infinity Space\x64\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -132,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="InfinitySpace.cpp" />
     <ClCompile Include="LogError.cpp" />
     <ClCompile Include="PixelShader.cpp" />
@@ -139,6 +141,7 @@
     <ClCompile Include="VertexShader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="LogError.h" />
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="PSO.h" />

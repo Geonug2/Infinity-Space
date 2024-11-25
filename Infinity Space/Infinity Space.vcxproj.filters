@@ -19,6 +19,12 @@
     <Filter Include="LogError">
       <UniqueIdentifier>{fca263ae-3092-4d42-8d08-0ef35f1e5e0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Frame">
+      <UniqueIdentifier>{9b7a86c6-8ecb-4015-8223-94878c2434b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Frame\Button">
+      <UniqueIdentifier>{2a365fb2-3366-4461-90c1-9233a87c0be9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InfinitySpace.cpp">
@@ -36,6 +42,9 @@
     <ClCompile Include="LogError.cpp">
       <Filter>LogError</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Frame\Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VertexShader.h">
@@ -49,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="LogError.h">
       <Filter>LogError</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Frame\Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

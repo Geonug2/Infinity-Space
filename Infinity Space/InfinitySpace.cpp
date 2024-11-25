@@ -1,4 +1,4 @@
-#include <windows.h>
+Ôªø#include <windows.h>
 #include <d3d12.h>
 #include <dxgi1_4.h>
 #include <wrl.h>
@@ -9,6 +9,7 @@
 #include "PixelShader.h"
 #include "VertexShader.h"
 #include "PSO.h"
+#include "Button.h"
 
 using Microsoft::WRL::ComPtr;
 using namespace Gdiplus;
@@ -17,10 +18,12 @@ ULONG_PTR gdiplusToken = 0; // GDI+ token
 const int TIMER_ID = 1; // Timer ID
 const int DISPLAY_TIME = 10000; // 10 seconds in milliseconds
 const int SWITCH_TIME = 5000; // 5 seconds in milliseconds
+Button myButton(200, 200, 60);
 
 enum class ImageState {
     Main,
-    Main2
+    Main2,
+    None
 };
 
 ImageState currentImage = ImageState::Main; // Algne pilt
@@ -33,7 +36,7 @@ void InitGDIPlus() {
     GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 }
 
-// GDI+ lıpetamine
+// GDI+ l√µpetamine
 void ShutdownGDIPlus() {
     GdiplusShutdown(gdiplusToken);
 }
@@ -47,27 +50,45 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(hwnd, &ps);
 
-        // Joonistame pildi
-        Graphics graphics(hdc);
-        Image image(currentImage == ImageState::Main ? L"Main.jpg" : L"Main2.jpg");
+        // Joonista valge taust, kui currentImage on None
+        if (currentImage == ImageState::None) {
+            FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
+        }
+        else {
+            Graphics graphics(hdc);
+            Image image(currentImage == ImageState::Main ? L"Main.jpg" : L"Main2.jpg");
+            graphics.DrawImage(&image, 0, 0, ps.rcPaint.right, ps.rcPaint.bottom);
+        }
 
-        // Joonistame pildi akna suuruses
-        graphics.DrawImage(&image, 0, 0, ps.rcPaint.right, ps.rcPaint.bottom);
+        // Joonista nupp
+        myButton.Draw(hdc);
 
         EndPaint(hwnd, &ps);
         return 0;
     }
     case WM_TIMER: {
-        // Vahetame pilti
-        if (currentImage == ImageState::Main) {
-            currentImage = ImageState::Main2;
-            SetTimer(hwnd, TIMER_ID, DISPLAY_TIME, NULL); // Seadke timer 10 sekundiks
+        if (currentImage != ImageState::None) {
+            if (currentImage == ImageState::Main) {
+                currentImage = ImageState::Main2;
+                SetTimer(hwnd, TIMER_ID, DISPLAY_TIME, NULL);
+            }
+            else {
+                currentImage = ImageState::Main;
+                SetTimer(hwnd, TIMER_ID, SWITCH_TIME, NULL);
+            }
+            InvalidateRect(hwnd, NULL, TRUE);
         }
-        else {
-            currentImage = ImageState::Main;
-            SetTimer(hwnd, TIMER_ID, SWITCH_TIME, NULL); // Seadke timer 5 sekundiks
+        return 0;
+    }
+    case WM_LBUTTONDOWN: { // Hiire vasaku nupu allavajutamine
+        int mouseX = LOWORD(lParam);
+        int mouseY = HIWORD(lParam);
+        if (myButton.IsClicked(mouseX, mouseY)) {
+            // Kui nuppu klikitakse, peida pildid ja tee nupp n√§htamatuks
+            currentImage = ImageState::None; // Seadke olek, et pilte ei kuvata
+            myButton.SetVisible(false); // Tee nupp n√§htamatuks
+            InvalidateRect(hwnd, NULL, TRUE); // Taask√§ivita aken
         }
-        InvalidateRect(hwnd, NULL, TRUE); // Taask‰ivitage aken
         return 0;
     }
     }
@@ -75,7 +96,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 }
 
 void InitD3D(HWND hwnd) {
-    // D3D12 seadistamine (see osa j‰‰b samaks)
+    // D3D12 seadistamine (see osa j√§√§b samaks)
 
     // Looge D3D12 device
     HRESULT hr = D3D12CreateDevice(
@@ -128,14 +149,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     // Seadke timer esmakordselt 5 sekundiks
     SetTimer(hwnd, TIMER_ID, SWITCH_TIME, NULL);
 
-    // Pe amine ts¸kkel
+    // Pe amine ts√ºkkel
     MSG msg = {};
     while (GetMessage(&msg, nullptr, 0, 0)) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
 
-    // Lıpetage GDI+
+    // L√µpetage GDI+
     ShutdownGDIPlus();
 
     return 0;
