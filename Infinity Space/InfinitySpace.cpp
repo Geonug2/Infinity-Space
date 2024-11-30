@@ -1,5 +1,4 @@
-﻿#include <windows.h>
-#include <d3d12.h>
+﻿#include <d3d12.h>
 #include <dxgi1_4.h>
 #include <wrl.h>
 #include <stdexcept>
@@ -23,7 +22,8 @@ Button myButton(200, 200, 60);
 enum class ImageState {
     Main,
     Main2,
-    None
+    None,
+    ColorBackground
 };
 
 ImageState currentImage = ImageState::Main; // Algne pilt
@@ -46,12 +46,17 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
     case WM_DESTROY:
         PostQuitMessage(0);
         return 0;
-    case WM_PAINT: {
+    case WM_PAINT : {
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(hwnd, &ps);
 
-        // Joonista valge taust, kui currentImage on None
-        if (currentImage == ImageState::None) {
+        // Joonista RGB(0, 128, 128) taust, kui currentImage on ColorBackground
+        if (currentImage == ImageState::ColorBackground) {
+            HBRUSH brush = CreateSolidBrush(RGB(0, 128, 128));
+            FillRect(hdc, &ps.rcPaint, brush);
+            DeleteObject(brush);
+        }
+        else if (currentImage == ImageState::None) {
             FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
         }
         else {
@@ -84,8 +89,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
         int mouseX = LOWORD(lParam);
         int mouseY = HIWORD(lParam);
         if (myButton.IsClicked(mouseX, mouseY)) {
-            // Kui nuppu klikitakse, peida pildid ja tee nupp nähtamatuks
-            currentImage = ImageState::None; // Seadke olek, et pilte ei kuvata
+            // Kui nuppu klikitakse, muuda taustavärvi
+            currentImage = ImageState::ColorBackground; // Seadke olek, et muuta taustavärvi
             myButton.SetVisible(false); // Tee nupp nähtamatuks
             InvalidateRect(hwnd, NULL, TRUE); // Taaskäivita aken
         }
