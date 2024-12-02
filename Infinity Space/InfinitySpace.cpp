@@ -1,5 +1,4 @@
-﻿#include <d3d12.h>
-#include <dxgi1_4.h>
+﻿#include <dxgi1_4.h>
 #include <wrl.h>
 #include <stdexcept>
 #include <gdiplus.h>
@@ -9,6 +8,9 @@
 #include "PSO.h"
 #include "Button.h"
 #include "Buffer.h"
+#include "Matrix2D.h"
+#include "Matrix3D.h"
+#include "Matrix4D.h"
 
 using Microsoft::WRL::ComPtr;
 using namespace Gdiplus;
@@ -46,7 +48,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
     case WM_DESTROY:
         PostQuitMessage(0);
         return 0;
-    case WM_PAINT : {
+    case WM_PAINT: {
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(hwnd, &ps);
 
@@ -100,6 +102,88 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
 
+void TestMatrix4DOperations() {
+    Matrix4D::MatrixArray array1 = { {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}} };
+    Matrix4D::MatrixArray array2 = { {{16, 15, 14, 13}, {12, 11, 10, 9}, {8, 7, 6, 5}, {4, 3, 2, 1}} };
+
+    Matrix4D matrix1(array1);
+    Matrix4D matrix2(array2);
+
+    Matrix4D sum = matrix1 + matrix2;
+    Matrix4D difference = matrix1 - matrix2;
+    Matrix4D product = matrix1 * matrix2;
+
+    std::cout << "Matrix 1:" << std::endl;
+    matrix1.Print();
+
+    std::cout << "Matrix 2:" << std::endl;
+    matrix2.Print();
+
+    std::cout << "Sum:" << std::endl;
+    sum.Print();
+
+    std::cout << "Difference:" << std::endl;
+    difference.Print();
+
+    std::cout << "Product:" << std::endl;
+    product.Print();
+}
+
+void TestMatrix3DOperations() {
+    Matrix3D::MatrixArray array1 = { {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}} };
+    Matrix3D::MatrixArray array2 = { {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}} };
+
+    Matrix3D matrix1(array1);
+    Matrix3D matrix2(array2);
+
+    Matrix3D sum = matrix1 + matrix2;
+    Matrix3D difference = matrix1 - matrix2;
+    Matrix3D product = matrix1 * matrix2;
+
+    std::cout << "Matrix 1:" << std::endl;
+    matrix1.Print();
+
+    std::cout << "Matrix 2:" << std::endl;
+    matrix2.Print();
+
+    std::cout << "Sum:" << std::endl;
+    sum.Print();
+
+    std::cout << "Difference:" << std::endl;
+    difference.Print();
+
+    std::cout << "Product:" << std::endl;
+    product.Print();
+}
+
+void TestMatrixOperations() {
+    Matrix2D::MatrixArray array1 = { {{1, 2}, {3, 4}} };
+    Matrix2D::MatrixArray array2 = { {{5, 6}, {7, 8}} };
+
+    Matrix2D matrix1(array1);
+    Matrix2D matrix2(array2);
+
+    Matrix2D sum = matrix1 + matrix2;
+    Matrix2D difference = matrix1 - matrix2;
+    Matrix2D product = matrix1 * matrix2;
+
+    std::cout << "Matrix 1:" << std::endl;
+    matrix1.Print();
+
+    std::cout << "Matrix 2:" << std::endl;
+    matrix2.Print();
+
+    std::cout << "Sum:" << std::endl;
+    sum.Print();
+
+    std::cout << "Difference:" << std::endl;
+    difference.Print();
+
+    std::cout << "Product:" << std::endl;
+    product.Print();
+}
+
+
 void InitD3D(HWND hwnd) {
     // D3D12 seadistamine (see osa jääb samaks)
 
@@ -118,6 +202,9 @@ void InitD3D(HWND hwnd) {
     auto vertexShader = std::make_unique<VertexShader>(device);
     auto pixelShader = std::make_unique<PixelShader>(device);
 
+    TestMatrixOperations();
+    TestMatrix3DOperations();
+    TestMatrix4DOperations();
     // Looge Pipeline State Object
     PipelineStateObject pso(device, vertexShader.get(), pixelShader.get());
 }

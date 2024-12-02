@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\georg\vcpkg\installed\x64-windows\include;C:\Users\georg\source\repos\Infinity Space\InfinityTexture;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\georg\source\repos\Infinity Space\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\georg\vcpkg\installed\x64-windows\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\georg\vcpkg\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Users\georg\vcpkg\installed\x64-windows\include;$(IncludePath)</IncludePath>
@@ -132,7 +132,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d12.lib;dxgi.lib;Gdiplus.lib;D3DCompiler.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;Gdiplus.lib;D3DCompiler.lib;tinyobjloader.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -148,11 +148,14 @@
     <ClCompile Include="VertexShader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Matrix2D.h" />
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="HeapProperties.h" />
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="LogError.h" />
+    <ClInclude Include="Matrix3D.h" />
+    <ClInclude Include="Matrix4D.h" />
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="PSO.h" />
     <ClInclude Include="Resource.h" />

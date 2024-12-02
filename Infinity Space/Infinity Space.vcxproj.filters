@@ -34,14 +34,20 @@
     <Filter Include="Resource">
       <UniqueIdentifier>{8069402a-73c1-4c5f-b4f8-53216ad5ad0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="IndexBuffer">
-      <UniqueIdentifier>{f3290fb3-a35d-4f0b-bca6-19c72b9ad19b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="NewFilter1">
-      <UniqueIdentifier>{2f7d0077-2c26-49e3-8e2f-69e8c9467177}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource\HeapProperties">
       <UniqueIdentifier>{8ba61005-8bb8-444f-a5d0-c54ec0bc2c24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\IndexBuffer">
+      <UniqueIdentifier>{f3290fb3-a35d-4f0b-bca6-19c72b9ad19b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\3dmodels">
+      <UniqueIdentifier>{0c22d394-9f27-4863-9397-4a9fd1d82e45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Background">
+      <UniqueIdentifier>{6ee05fa7-2c7f-4b3e-83b3-ba862d0c8851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{2f7d0077-2c26-49e3-8e2f-69e8c9467177}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -67,7 +73,7 @@
       <Filter>GraphicsRendering\Buffer</Filter>
     </ClCompile>
     <ClCompile Include="IndexBuffer.cpp">
-      <Filter>IndexBuffer</Filter>
+      <Filter>Resource\IndexBuffer</Filter>
     </ClCompile>
     <ClCompile Include="Resource.cpp">
       <Filter>Resource</Filter>
@@ -96,13 +102,22 @@
       <Filter>GraphicsRendering\Buffer</Filter>
     </ClInclude>
     <ClInclude Include="IndexBuffer.h">
-      <Filter>IndexBuffer</Filter>
+      <Filter>Resource\IndexBuffer</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="HeapProperties.h">
       <Filter>Resource\HeapProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4D.h">
+      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
