@@ -119,6 +119,9 @@
     <ClInclude Include="Matrix4D.h">
       <Filter>Math</Filter>
     </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="VertexShader.hlsl">

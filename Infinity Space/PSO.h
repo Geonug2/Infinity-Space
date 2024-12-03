@@ -5,6 +5,7 @@
 #include <wrl.h>
 #include "VertexShader.h"
 #include "PixelShader.h"
+#include "Vertex.h"
 
 class PipelineStateObject {
 public:
