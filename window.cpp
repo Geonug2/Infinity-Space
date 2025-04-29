@@ -37,9 +37,6 @@ bool Window::Create(HINSTANCE hInstance, int width, int height, const wchar_t* t
 }
 
 bool Window::Initialize(HINSTANCE hInstance, int nCmdShow) {
-    // Siin luuakse akna loomise ja DirectX seadme ning swap chain’i initsialiseerimine.
-    // ...
-
     // Peale seadme loomist initsialiseeri pixel shader.
     m_pixelShader = new PixelShader();
     // Vajadusel muuda siia failitee vastavalt projekti struktuurile (nt L"shaders\\sPixelShader.hlsl")

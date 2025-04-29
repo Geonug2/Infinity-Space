@@ -10,6 +10,9 @@
     <Filter Include="Infinity Space\PixelShader">
       <UniqueIdentifier>{0e5216d5-56ea-4f2c-8103-acede04596e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Infinity Space\VertexShader">
+      <UniqueIdentifier>{cb075e57-3aea-4cef-9984-fd4887480b01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +24,9 @@
     <ClCompile Include="PixelShader.cpp">
       <Filter>Infinity Space\PixelShader</Filter>
     </ClCompile>
+    <ClCompile Include="VertexShader.cpp">
+      <Filter>Infinity Space\VertexShader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window.h">
@@ -29,10 +35,16 @@
     <ClInclude Include="PixelShader.h">
       <Filter>Infinity Space\PixelShader</Filter>
     </ClInclude>
+    <ClInclude Include="VertexShader.h">
+      <Filter>Infinity Space\VertexShader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="PixelShader.hlsl">
       <Filter>Infinity Space\PixelShader</Filter>
+    </FxCompile>
+    <FxCompile Include="VertexShader.hlsl">
+      <Filter>Infinity Space\VertexShader</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>
