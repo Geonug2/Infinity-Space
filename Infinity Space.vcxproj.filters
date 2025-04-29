@@ -7,8 +7,8 @@
     <Filter Include="Infinity Space\window">
       <UniqueIdentifier>{ea55f777-d4cc-4972-a5e5-c4f101c286a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Infinity Space\SwapChain">
-      <UniqueIdentifier>{c3648e2b-f87e-47c9-a993-d73a4124e162}</UniqueIdentifier>
+    <Filter Include="Infinity Space\PixelShader">
+      <UniqueIdentifier>{0e5216d5-56ea-4f2c-8103-acede04596e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -18,16 +18,21 @@
     <ClCompile Include="window.cpp">
       <Filter>Infinity Space\window</Filter>
     </ClCompile>
-    <ClCompile Include="SwapChain.cpp">
-      <Filter>Infinity Space\SwapChain</Filter>
+    <ClCompile Include="PixelShader.cpp">
+      <Filter>Infinity Space\PixelShader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window.h">
       <Filter>Infinity Space\window</Filter>
     </ClInclude>
-    <ClInclude Include="SwapChain.h">
-      <Filter>Infinity Space\SwapChain</Filter>
+    <ClInclude Include="PixelShader.h">
+      <Filter>Infinity Space\PixelShader</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="PixelShader.hlsl">
+      <Filter>Infinity Space\PixelShader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
