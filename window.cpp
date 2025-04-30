@@ -1,4 +1,4 @@
-#include "window.h"
+ï»¿#include "window.h"
 
 Window::Window()
     : m_device(nullptr)
@@ -41,7 +41,7 @@ bool Window::Initialize(HINSTANCE hInstance, int nCmdShow) {
     m_pixelShader = new PixelShader();
     // Vajadusel muuda siia failitee vastavalt projekti struktuurile (nt L"shaders\\sPixelShader.hlsl")
     if (!m_pixelShader->Initialize(m_device, L"PixelShader.hlsl")) {
-        // Võid siin lisada täpsemat vea haldust
+        // Vï¿½id siin lisada tï¿½psemat vea haldust
         return false;
     }
     return true;
@@ -56,12 +56,12 @@ HWND Window::GetHandle() const {
 }
 
 void Window::Render() {
-    // Tühjenda renderdusala, seadista pipeline jne.
+    // Tï¿½hjenda renderdusala, seadista pipeline jne.
 
     // Seome pixel shaderi enne joonistamist.
     m_pixelShader->Bind(m_deviceContext);
 
-    // Tegelike joonistuskäskude tegemine
+    // Tegelike joonistuskï¿½skude tegemine
     // ...
 
     // Esita joonistustulemused.
